@@ -39,21 +39,18 @@ function dealCard(deck) {
 
 // Funksjon for å sjekke verdien av spillerens hånd.
 function checkPlayerHandValue() {
+    const para = document.createElement("p"); // Oppretter et nytt <p> element.
+    const value = document.createElement("p");
+    value.innerHTML = "Du har " + playerHandValue; // Setter teksten til meldingen.
     if (playerHandValue > 21) { // Hvis verdien av spillerens hånd er over 21.
         document.getElementById('hitButton').disabled = true; // Deaktiverer "hit" knappen.
         document.getElementById('standButton').disabled = true;
-        console.log('Bust! Player hand value exceeds 21.'); // Skriver ut en melding om at spilleren har gått over 21.
-        const para = document.createElement("p"); // Oppretter et nytt <p> element.
-        para.innerHTML = "Bust! Du kom over 21"; // Setter teksten til meldingen.
-        document.getElementById("result").appendChild(para); // Legger til meldingen i HTML-dokumentet.
+        document.getElementById("result").innerHTML = "Bust! Du kom over 21"
     } else if (playerHandValue === 21) { // Hvis verdien av spillerens hånd er 21.
         document.getElementById('hitButton').disabled = true; // Deaktiverer "hit" knappen.
-        console.log('Blackjack! Player hand value is 21.'); // Skriver ut en melding om at spilleren har blackjack.
-        const para = document.createElement("p"); // Oppretter et nytt <p> element.
-        para.innerHTML = "Blackjack! Du fikk 21!"; // Setter teksten til meldingen.
-        document.getElementById("result").appendChild(para); // Legger til meldingen i HTML-dokumentet.
+        document.getElementById("result").innerHTML = "Blackjack! Du fikk 21!"; // Setter teksten til meldingen.
     } else { 
-        console.log('Player hand value:', playerHandValue); // Skriver ut verdien av spillerens hånd.
+        document.getElementById("result").innerHTML = 'Du har ' + playerHandValue
     }
 }
 
